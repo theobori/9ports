@@ -1,6 +1,7 @@
 DIRS=\
 	catclock\
 	sudoku\
+	juggle\
 
 TARG=$DIRS
 

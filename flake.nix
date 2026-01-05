@@ -18,12 +18,15 @@
         pkgs = nixpkgs.legacyPackages.${system};
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+        default = pkgs.callPackage ./. { };
       in
       {
         packages = {
+          inherit default;
+          all = default;
           sudoku = pkgs.callPackage ./sudoku { };
           catclock = pkgs.callPackage ./catclock { };
-          default = pkgs.callPackage ./. { };
+          juggle = pkgs.callPackage ./juggle { };
         };
 
         devShells = {

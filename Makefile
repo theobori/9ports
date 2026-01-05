@@ -2,7 +2,8 @@ PREFIX ?= /usr
 export PREFIX := ${PREFIX}
 
 TARGETS ?= catclock \
-		   sudoku
+		   sudoku \
+		   juggle
 
 define create_phony_target
 .PHONY: ${1}

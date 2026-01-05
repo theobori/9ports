@@ -5,5 +5,6 @@ import ./mk9Port.nix {
   binNames = [
     "sudoku"
     "catclock"
+    "juggle"
   ];
 }

@@ -2,11 +2,9 @@
 
 BIN=$PREFIX/bin
 
-catclock.$O:	catback.p eyes.p
-
-TARG=catclock
+TARG=juggle
 OFILES=\
-	catclock.$O\
+	juggle.$O\
 
 pre-install:V: 
 	mkdir -p $BIN
