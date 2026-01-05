@@ -1,0 +1,17 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+catclock.$O:	catback.p eyes.p
+
+TARG=catclock
+OFILES=\
+	catclock.$O\
+
+pre-install:V: 
+	mkdir -p $BIN
+
+install:V: pre-install $TARG.install
+NUKEFILES=$NUKEFILES $SHARE_SUDOKU
+
+<$PLAN9/src/mkone

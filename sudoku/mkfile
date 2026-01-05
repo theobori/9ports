@@ -1,0 +1,26 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+SHARE=$PREFIX/share
+SHARE_SUDOKU=$SHARE/sudoku
+
+TARG=sudoku
+OFILES=\
+	sudoku.$O\
+	levels.$O\
+	game.$O\
+
+HFILES=sudoku.h\
+
+IMGDIR=$SHARE_SUDOKU/images
+LVLDIR=$SHARE_SUDOKU/boards
+CFLAGS=$CFLAGS -D'IMGDIR="'$IMGDIR'"' -D'LVLDIR="'$LVLDIR'"'
+
+pre-install:V: 
+	mkdir -p $BIN $SHARE
+	cp -r assets $SHARE_SUDOKU
+
+install:V: pre-install $TARG.install
+NUKEFILES=$NUKEFILES $SHARE_SUDOKU
+
+<$PLAN9/src/mkone
