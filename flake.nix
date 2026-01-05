@@ -21,6 +21,8 @@
       in
       {
         packages = {
+          sudoku = pkgs.callPackage ./sudoku { };
+          catclock = pkgs.callPackage ./catclock { };
           default = pkgs.callPackage ./. { };
         };
 

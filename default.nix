@@ -1,36 +1,9 @@
-{
-  lib,
-  stdenv,
-  plan9port,
-}:
-stdenv.mkDerivation {
+import ./mk9Port.nix {
   pname = "9ports";
   version = "0.0.1";
-
   src = ./.;
-
-  nativeBuildInputs = [
-    plan9port
+  binNames = [
+    "sudoku"
+    "catclock"
   ];
-
-  buildPhase = ''
-    runHook preBuild
-
-    PREFIX=$out make
-
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-
-    PREFIX=$out make install
-
-    runHook postInstall
-  '';
-
-  meta = {
-    description = "";
-    homepage = "https://github.com/theobori/9ports";
-  };
 }
