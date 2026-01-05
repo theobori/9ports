@@ -1,0 +1,14 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+TARG=life
+OFILES=\
+	life.$O\
+
+pre-install:V: 
+	mkdir -p $BIN
+
+install:V: pre-install $TARG.install
+
+<$PLAN9/src/mkone

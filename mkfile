@@ -5,6 +5,7 @@ DIRS=\
 	festoon\
 	sokoban\
 	mahjongg\
+	life\
 
 TARG=$DIRS
 

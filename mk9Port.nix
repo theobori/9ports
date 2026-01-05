@@ -1,6 +1,5 @@
 {
   pname,
-  binNames ? [ pname ],
   version,
   src,
 }:
@@ -9,9 +8,6 @@
   stdenv,
   plan9port,
 }:
-let
-  binNamesString = lib.concatStringsSep " " binNames;
-in
 stdenv.mkDerivation {
   inherit pname version src;
 
@@ -32,7 +28,7 @@ stdenv.mkDerivation {
 
     PREFIX=$out make install
 
-    for name in ${binNamesString}; do
+    for name in $(ls $out/bin); do
       mv $out/bin/$name $out/bin/.$name
 
       src=$out/bin/.$name

@@ -30,6 +30,7 @@
           festoon = pkgs.callPackage ./festoon { };
           sokoban = pkgs.callPackage ./sokoban { };
           mahjongg = pkgs.callPackage ./mahjongg { };
+          life = pkgs.callPackage ./life { };
         };
 
         devShells = {

@@ -6,7 +6,8 @@ TARGETS ?= catclock \
 		   juggle \
 		   festoon \
 		   sokoban \
-		   mahjongg
+		   mahjongg \
+		   life
 
 define create_phony_target
 .PHONY: ${1}
