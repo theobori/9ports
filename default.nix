@@ -8,5 +8,6 @@ import ./mk9Port.nix {
     "juggle"
     "festoon"
     "sokoban"
+    "mahjongg"
   ];
 }

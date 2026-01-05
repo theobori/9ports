@@ -69,7 +69,7 @@ typedef struct {
 
 // Port comment
 //
-// Making all of these extern
+// Making all of these variables extern
 extern Level level;		/* the current level */
 extern Level levels[Maxlevels];	/* all levels from this file */
 extern int numlevels;		/* how many levels do we have */

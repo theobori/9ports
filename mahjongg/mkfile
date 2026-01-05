@@ -1,0 +1,25 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+SHARE=$PREFIX/share
+SHARE_MAHJONGG=$SHARE/mahjongg
+
+TARG=mahjongg
+OFILES=\
+	mahjongg.$O\
+	graphics.$O\
+	level.$O\
+	logic.$O\
+
+HFILES=mahjongg.h\
+
+CFLAGS=$CFLAGS -D'MJDIR="'$SHARE_MAHJONGG'"'
+
+pre-install:V: 
+	mkdir -p $BIN $SHARE
+	cp -r assets $SHARE_MAHJONGG
+
+install:V: pre-install $TARG.install
+NUKEFILES=$NUKEFILES $SHARE_MAHJONGG
+
+<$PLAN9/src/mkone

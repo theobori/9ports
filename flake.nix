@@ -29,6 +29,7 @@
           juggle = pkgs.callPackage ./juggle { };
           festoon = pkgs.callPackage ./festoon { };
           sokoban = pkgs.callPackage ./sokoban { };
+          mahjongg = pkgs.callPackage ./mahjongg { };
         };
 
         devShells = {

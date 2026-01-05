@@ -7,8 +7,8 @@
 
 // Port comment
 //
-// Defined every variables that are extern in the header file
-Level level = {0};		/* the current level */
+// Defined variables that are extern in the header file
+Level level = {};		/* the current level */
 Level levels[Maxlevels] = {};	/* all levels from this file */
 int numlevels = 0;		/* how many levels do we have */
 

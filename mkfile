@@ -4,6 +4,7 @@ DIRS=\
 	juggle\
 	festoon\
 	sokoban\
+	mahjongg\
 
 TARG=$DIRS
 
