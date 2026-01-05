@@ -6,5 +6,6 @@ import ./mk9Port.nix {
     "sudoku"
     "catclock"
     "juggle"
+    "festoon"
   ];
 }

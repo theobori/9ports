@@ -27,6 +27,7 @@
           sudoku = pkgs.callPackage ./sudoku { };
           catclock = pkgs.callPackage ./catclock { };
           juggle = pkgs.callPackage ./juggle { };
+          festoon = pkgs.callPackage ./festoon { };
         };
 
         devShells = {

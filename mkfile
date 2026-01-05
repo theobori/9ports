@@ -2,6 +2,7 @@ DIRS=\
 	catclock\
 	sudoku\
 	juggle\
+	festoon\
 
 TARG=$DIRS
 
