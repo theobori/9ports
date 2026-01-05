@@ -3,6 +3,7 @@ DIRS=\
 	sudoku\
 	juggle\
 	festoon\
+	sokoban\
 
 TARG=$DIRS
 

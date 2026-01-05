@@ -7,5 +7,6 @@ import ./mk9Port.nix {
     "catclock"
     "juggle"
     "festoon"
+    "sokoban"
   ];
 }

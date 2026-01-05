@@ -4,7 +4,8 @@ export PREFIX := ${PREFIX}
 TARGETS ?= catclock \
 		   sudoku \
 		   juggle \
-		   festoon
+		   festoon \
+		   sokoban
 
 define create_phony_target
 .PHONY: ${1}

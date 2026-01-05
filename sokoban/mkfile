@@ -1,0 +1,27 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+SHARE=$PREFIX/share
+SHARE_SOKOBAN=$SHARE/sokoban
+
+TARG=sokoban
+OFILES=\
+	sokoban.$O\
+	animation.$O\
+	graphics.$O\
+	level.$O\
+	move.$O\
+	route.$O\
+
+HFILES=sokoban.h\
+
+CFLAGS=$CFLAGS -D'SOKOTREE="'$SHARE_SOKOBAN'"'
+
+pre-install:V: 
+	mkdir -p $BIN $SHARE
+	cp -r assets $SHARE_SOKOBAN
+
+install:V: pre-install $TARG.install
+NUKEFILES=$NUKEFILES $SHARE_SOKOBAN
+
+<$PLAN9/src/mkone

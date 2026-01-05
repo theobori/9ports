@@ -8,7 +8,6 @@
   lib,
   stdenv,
   plan9port,
-  makeWrapper,
 }:
 let
   binNamesString = lib.concatStringsSep " " binNames;
@@ -18,7 +17,6 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     plan9port
-    makeWrapper
   ];
 
   buildPhase = ''
@@ -35,8 +33,13 @@ stdenv.mkDerivation {
     PREFIX=$out make install
 
     for name in ${binNamesString}; do
-      echo "exec ${plan9port}/bin/9 $out/bin/$name \$@" > $out/bin/9$name
-      chmod +x $out/bin/9$name
+      mv $out/bin/$name $out/bin/.$name
+
+      src=$out/bin/.$name
+      dst=$out/bin/9$name
+
+      echo "exec ${plan9port}/bin/9 $src \$@" > $dst
+      chmod +x $dst
     done
 
     runHook postInstall
