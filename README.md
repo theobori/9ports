@@ -1,6 +1,6 @@
 # Plan 9 from User Space ports of Plan 9 programs
 
-[![build](https://github.com/theobori/9ports/actions/workflows/build.yml/badge.svg)](https://github.com/theobori/9ports/actions/workflows/build.yml)
+[![check_then_build](https://github.com/theobori/9ports/actions/workflows/check_then_build.yml/badge.svg)](https://github.com/theobori/9ports/actions/workflows/check_then_build.yml)
 
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
