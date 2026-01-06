@@ -2,6 +2,7 @@
   pname,
   version,
   src,
+  mainProgram ? "9" + pname,
 }:
 {
   lib,
@@ -24,25 +25,32 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    runHook preInstall
+        runHook preInstall
 
-    PREFIX=$out make install
+        PREFIX=$out make install
 
-    for name in $(ls $out/bin); do
-      mv $out/bin/$name $out/bin/.$name
+        for name in $(ls $out/bin); do
+          mv $out/bin/$name $out/bin/.$name
 
-      src=$out/bin/.$name
-      dst=$out/bin/9$name
+          src=$out/bin/.$name
+          dst=$out/bin/9$name
 
-      echo "exec ${plan9port}/bin/9 $src \$@" > $dst
-      chmod +x $dst
-    done
+          # She shebang will be automatically patched by Nix
+          cat <<EOF > $dst
+    #!/usr/bin/env sh
+    exec ${plan9port}/bin/9 $src \$@
+    EOF
+          chmod +x $dst
+        done
 
-    runHook postInstall
+        runHook postInstall
   '';
 
   meta = {
     description = "";
     homepage = "https://github.com/theobori/9ports";
+  }
+  // lib.optionalAttrs (mainProgram != null) {
+    inherit mainProgram;
   };
 }
