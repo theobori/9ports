@@ -75,7 +75,9 @@ For a C file, it migth look like this.
 
 ## Compatibility
 
-Builds, installation and project execution have so far only been tested for the `linux-x86_64` platform.
+Builds and installation and project execution have so far only been tested for the `x86_64-linux` platform.
+
+Builds and installation are tested using a GitHub Action [workflow](/.github/workflows/check_then_build.yml) for `x86_64-linux`, `aarch64-linux` and `aarch64-darwin` platforms.
 
 ## Nix
 
