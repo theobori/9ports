@@ -34,6 +34,7 @@
           life = pkgs.callPackage ./life { };
           xs = pkgs.callPackage ./xs { };
           memo = pkgs.callPackage ./memo { inherit face; };
+          glendy = pkgs.callPackage ./glendy { inherit face; };
         };
 
         devShells = {

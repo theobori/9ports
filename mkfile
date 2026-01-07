@@ -9,6 +9,7 @@ DIRS=\
 	xs\
 	face\
 	memo\
+	glendy\
 
 TARG=$DIRS
 

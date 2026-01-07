@@ -4,11 +4,11 @@
 
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-This GitHub repository is a KISS project which contains program ports [Plan 9](https://9p.io/plan9/) for [Plan 9 from User Space (plan9port)](https://github.com/9fans/plan9port). Most are graphics applications and games.
+This GitHub repository is a KISS project which contains program ports [Plan 9](https://9p.io/plan9/) and [9front](https://git.9front.org/plan9front/9front/HEAD/info.html) for [Plan 9 from User Space (plan9port)](https://github.com/9fans/plan9port). Most are graphics applications and games.
 
 ## Getting started
 
-To build the project you need GNU Make, [Plan 9 from User Space](https://github.com/9fans/plan9port) and its dependencies. Then you can run the following command line.
+To build the project you need GNU Make, [Plan 9 from User Space](https://github.com/9fans/plan9port) and its dependencies for building programs (compiler, linker, etc.). Then you can run the following command line.
 
 ```bash
 export PREFIX=/usr
@@ -47,7 +47,7 @@ Then you can, for example, launch a catclock with the following command line.
 
 ## Source code
 
-The code for the ported projects has been retrieved from [https://9p.io/sources/plan9](https://9p.io/sources/plan9).
+The code for ported projects was retrieved from [https://9p.io/sources/plan9](https://9p.io/sources/plan9) and [9front](https://git.9front.org/plan9front/9front/30d6e6879e9acff30267a146ecb956ac470a38db/files.html) for projects that do not exist in [Plan 9](https://9p.io/plan9/).
 
 ### Modifying
 
