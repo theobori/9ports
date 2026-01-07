@@ -1,0 +1,28 @@
+<$PLAN9/src/mkhdr
+
+SHARE=$PREFIX/share
+SHARE_FACE=$PREFIX/share/face
+
+all:V:
+	echo "use mk install"
+
+pre-install:V:
+	mkdir -p $SHARE
+
+install:V: pre-install
+	cp -r data $SHARE_FACE
+
+NUKEFILES=$NUKEFILES $SHARE_FACE
+
+nuke:V: nuke-common
+clean:V: clean-common
+%.clean:V: %.clean-common
+
+nuke-common:V:
+	rm -rf *.[$OS] [$OS].out $CLEANFILES y.tab.[ch] $NUKEFILES
+
+clean-common:
+	rm -f *.[$OS] [$OS].out $CLEANFILES y.tab.[ch]
+
+%.clean-common:V:
+	rm -f $stem.[$OS] [$OS].$stem $stem.acid $stem

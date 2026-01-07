@@ -24,3 +24,6 @@ install:V: pre-install $TARG.install
 NUKEFILES=$NUKEFILES $SHARE_SUDOKU
 
 <$PLAN9/src/mkone
+
+nuke-common:V:
+	rm -rf *.[$OS] [$OS].out $CLEANFILES y.tab.[ch] $NUKEFILES

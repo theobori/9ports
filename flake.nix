@@ -19,10 +19,11 @@
 
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
         default = pkgs.callPackage ./. { };
+        face = pkgs.callPackage ./face { };
       in
       {
         packages = {
-          inherit default;
+          inherit default face;
           all = default;
           sudoku = pkgs.callPackage ./sudoku { };
           catclock = pkgs.callPackage ./catclock { };
@@ -32,6 +33,7 @@
           mahjongg = pkgs.callPackage ./mahjongg { };
           life = pkgs.callPackage ./life { };
           xs = pkgs.callPackage ./xs { };
+          memo = pkgs.callPackage ./memo { inherit face; };
         };
 
         devShells = {

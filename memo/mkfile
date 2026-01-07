@@ -1,0 +1,16 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+TARG=memo
+OFILES=\
+	memo.$O\
+
+CFLAGS=$CFLAGS -D'FACE_DIR="'$FACE_DIR'"'
+
+pre-install:V:
+	mkdir -p $BIN
+
+install:V: pre-install $TARG.install
+
+<$PLAN9/src/mkone

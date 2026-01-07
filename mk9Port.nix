@@ -3,12 +3,18 @@
   version,
   src,
   mainProgram ? "9" + pname,
+  additionalMakeEnvVars ? { },
 }:
 {
   lib,
   stdenv,
   plan9port,
 }:
+let
+  additionalMakeEnvVarsString = lib.concatMapAttrsStringSep " " (
+    name: value: "${name}=${builtins.toString value}"
+  ) additionalMakeEnvVars;
+in
 stdenv.mkDerivation {
   inherit pname version src;
 
@@ -19,7 +25,7 @@ stdenv.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
-    PREFIX=$out make
+    PREFIX=$out ${additionalMakeEnvVarsString} make
 
     runHook postBuild
   '';
@@ -27,7 +33,7 @@ stdenv.mkDerivation {
   installPhase = ''
         runHook preInstall
 
-        PREFIX=$out make install
+        PREFIX=$out ${additionalMakeEnvVarsString} make install
 
         for name in $(ls $out/bin); do
           mv $out/bin/$name $out/bin/.$name

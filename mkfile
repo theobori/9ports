@@ -7,6 +7,8 @@ DIRS=\
 	mahjongg\
 	life\
 	xs\
+	face\
+	memo\
 
 TARG=$DIRS
 
