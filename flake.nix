@@ -35,6 +35,7 @@
           xs = pkgs.callPackage ./xs { };
           memo = pkgs.callPackage ./memo { inherit face; };
           glendy = pkgs.callPackage ./glendy { inherit face; };
+          mandel = pkgs.callPackage ./mandel { };
         };
 
         devShells = {

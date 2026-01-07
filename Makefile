@@ -11,7 +11,8 @@ TARGETS ?= catclock \
 		   xs \
 		   face \
 		   memo \
-		   glendy
+		   glendy \
+		   mandel
 
 define create_phony_target
 .PHONY: ${1}
