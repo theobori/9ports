@@ -181,14 +181,23 @@ checkpossible(Cell *board, int x, int y, int num)
 void
 resize(void)
 {
-	int fd;
+	// Port comment
+	//
+	// Using the drawresizewindow function
+	// int fd;
 
-	fd = open("/dev/wctl", OWRITE);
-	if(fd >= 0){
-		fprint(fd, "resize -dx %d -dy %d", Maxx, Maxy);
-		close(fd);
-	}
+	// fd = open("/dev/wctl", OWRITE);
+	// if(fd >= 0){
+	// 	fprint(fd, "resize -dx %d -dy %d", Maxx, Maxy);
+	// 	close(fd);
+	// }
 
+	Rectangle r = {
+		{0, 0},
+		{Maxx, Maxy},
+	};
+
+	drawresizewindow(r);
 }
 
 void

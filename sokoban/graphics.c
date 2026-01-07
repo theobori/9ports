@@ -85,14 +85,23 @@ resize(Point p)
 {
 	/* resize to the size of the current level */
 
-	int fd;
+	// Port comment
+	//
+	// Using the drawresizewindow function
+	// int fd;
 
-	fd = open("/dev/wctl", OWRITE);
-	if(fd >= 0){
-		fprint(fd, "resize -dx %d -dy %d", p.x*BoardX+10, p.y*BoardY+10);
-		close(fd);
-	}
+	// fd = open("/dev/wctl", OWRITE);
+	// if(fd >= 0){
+	// 	fprint(fd, "resize -dx %d -dy %d", p.x*BoardX+10, p.y*BoardY+10);
+	// 	close(fd);
+	// }
 
+	Rectangle r = {
+		{0, 0},
+		{p.x*BoardX, p.y*BoardY},
+	};
+
+	drawresizewindow(r);
 }
 
 Point

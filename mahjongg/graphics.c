@@ -122,13 +122,23 @@ drawlevel(void)
 void
 resize(Point p)
 {
-	int fd;
+	// Port comment
+	//
+	// Using the drawresizewindow function
+	// int fd;
 
-	fd = open("/dev/wctl", OWRITE);
-	if(fd >= 0){
-		fprint(fd, "resize -dx %d -dy %d", p.x, p.y);
-		close(fd);
-	}
+	// fd = open("/dev/wctl", OWRITE);
+	// if(fd >= 0){
+	// 	fprint(fd, "resize -dx %d -dy %d", p.x, p.y);
+	// 	close(fd);
+	// }
+
+	Rectangle r = {
+		{0, 0},
+		{p.x, p.y},
+	};
+
+	drawresizewindow(r);
 }
 
 void
