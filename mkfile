@@ -6,6 +6,7 @@ DIRS=\
 	sokoban\
 	mahjongg\
 	life\
+	xs\
 
 TARG=$DIRS
 

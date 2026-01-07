@@ -31,6 +31,7 @@
           sokoban = pkgs.callPackage ./sokoban { };
           mahjongg = pkgs.callPackage ./mahjongg { };
           life = pkgs.callPackage ./life { };
+          xs = pkgs.callPackage ./xs { };
         };
 
         devShells = {

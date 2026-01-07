@@ -17,7 +17,7 @@ HFILES=sokoban.h\
 
 CFLAGS=$CFLAGS -D'SOKOTREE="'$SHARE_SOKOBAN'"'
 
-pre-install:V: 
+pre-install:V:
 	mkdir -p $BIN $SHARE
 	cp -r assets $SHARE_SOKOBAN
 

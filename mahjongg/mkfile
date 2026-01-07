@@ -15,7 +15,7 @@ HFILES=mahjongg.h\
 
 CFLAGS=$CFLAGS -D'MJDIR="'$SHARE_MAHJONGG'"'
 
-pre-install:V: 
+pre-install:V:
 	mkdir -p $BIN $SHARE
 	cp -r assets $SHARE_MAHJONGG
 

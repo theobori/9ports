@@ -1,0 +1,26 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+$O.4s:	4s.$O xs.$O $LIB
+	$LD -o $target $prereq $LDFLAGS
+
+$O.5s:	5s.$O xs.$O $LIB
+	$LD -o $target $prereq $LDFLAGS
+
+all:V:	$O.4s $O.5s
+
+pre-install:V:
+	mkdir -p $BIN
+
+install:V: pre-install 4s.install 5s.install
+%.install:V:	$BIN/%
+
+$BIN/%:	$O.%
+	$INSTALL $O.$stem $BIN/$stem
+
+CLEANFILES=$CLEANFILES $O.4s $O.5s
+NUKEFILES=$NUKEFILES $BIN/4s $BIN/5s
+
+<$PLAN9/src/mkcommon
+

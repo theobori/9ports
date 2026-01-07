@@ -6,7 +6,7 @@ TARG=festoon
 OFILES=\
 	festoon.$O\
 
-pre-install:V: 
+pre-install:V:
 	mkdir -p $BIN
 
 install:V: pre-install $TARG.install
