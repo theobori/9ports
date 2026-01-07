@@ -14,6 +14,8 @@ let
   additionalMakeEnvVarsString = lib.concatMapAttrsStringSep " " (
     name: value: "${name}=${builtins.toString value}"
   ) additionalMakeEnvVars;
+
+  makeEnv = "PREFIX=$out ${additionalMakeEnvVarsString}";
 in
 stdenv.mkDerivation {
   inherit pname version src;
@@ -25,7 +27,7 @@ stdenv.mkDerivation {
   buildPhase = ''
     runHook preBuild
 
-    PREFIX=$out ${additionalMakeEnvVarsString} make
+    ${makeEnv} make
 
     runHook postBuild
   '';
@@ -33,7 +35,7 @@ stdenv.mkDerivation {
   installPhase = ''
         runHook preInstall
 
-        PREFIX=$out ${additionalMakeEnvVarsString} make install
+        ${makeEnv} make install
 
         for name in $(ls $out/bin); do
           mv $out/bin/$name $out/bin/.$name

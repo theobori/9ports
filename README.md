@@ -4,11 +4,11 @@
 
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-This GitHub repository is a KISS project which contains program ports [Plan 9](https://9p.io/plan9/) for [Plan 9 from User Space (plan9port)](https://github.com/9fans/plan9port).
+This GitHub repository is a KISS project which contains program ports [Plan 9](https://9p.io/plan9/) for [Plan 9 from User Space (plan9port)](https://github.com/9fans/plan9port). Most are graphics applications and games.
 
 ## Getting started
 
-To build the project you need GNU Make and [Plan 9 from User Space](https://github.com/9fans/plan9port). Then you can run the following command line.
+To build the project you need GNU Make, [Plan 9 from User Space](https://github.com/9fans/plan9port) and its dependencies. Then you can run the following command line.
 
 ```bash
 export PREFIX=/usr
