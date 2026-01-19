@@ -36,7 +36,7 @@ Dir *dir;
 int numlevels;
 int curlevel;
 
-char *buttons[] = 
+char *buttons[] =
 {
 	"new",
 	"check",
@@ -50,7 +50,7 @@ char *buttons[] =
 	0
 };
 
-Menu menu = 
+Menu menu =
 {
 	buttons
 };
@@ -73,7 +73,7 @@ readlevels(char *leveldir)
 	n = dirreadall(fd, &dir);
 	close(fd);
 
-	return n;	
+	return n;
 }
 
 char *
@@ -81,7 +81,7 @@ genlevels(int i)
 {
 	if(numlevels == 0)
 		numlevels = readlevels(lvldir);
-	
+
 	if(numlevels > 0 && i < numlevels)
 		return (dir+i)->name;
 
@@ -92,7 +92,7 @@ void
 convert(Cell *brd, int *board)
 {
 	int i;
-	
+
 	for(i = 0; i < Psize; i++) {
 		brd[i].digit = board[i] & Digit;
 		if(brd[i].digit < 0 || brd[i].digit > 9)
@@ -130,7 +130,7 @@ eloadfile(char *path)
 	if(img == nil)
 		sysfatal("cannot load image: %r");
 	close(fd);
-	
+
 	return img;
 }
 
@@ -139,7 +139,7 @@ void
 clearboard(Cell *board)
 {
 	int i;
-	
+
 	for(i = 0; i < Psize; i++) {
 		board[i].digit = -1;
 		board[i].solve = 0;
@@ -166,7 +166,7 @@ checkpossible(Cell *board, int x, int y, int num)
 	for(i = 0; i < Brdsize; i++) {
 		if(board[i*Brdsize + y].digit == num && i != x)
 			return 0;
-		if(board[x*Brdsize + i].digit == num && i != y)	
+		if(board[x*Brdsize + i].digit == num && i != y)
 			return 0;
 	}
 
@@ -211,7 +211,7 @@ drawcell(int x, int y, int num, Image *col)
 	r = insetrect(r, Border);
 	r = rectaddpt(r, Pt(0, Square));
 	r.max = addpt(r.max, Pt(2, 2));
-	
+
 	draw(screen, rectaddpt(r, screen->r.min), col, dig[num], ZP);
 }
 
@@ -233,8 +233,8 @@ drawchecked(Cell *brd)
 	for(i = 0; i < Psize; i++) {
 		if(brd[i].locked)
 			drawcell(i / Brdsize, i % Brdsize, brd[i].digit, fixed);
-		else 
-			drawcell(i / Brdsize, i % Brdsize, brd[i].digit, 
+		else
+			drawcell(i / Brdsize, i % Brdsize, brd[i].digit,
 					checkpossible(brd, i / Brdsize, i % Brdsize, brd[i].digit) ? display->black : wrong);
 	}
 }
@@ -250,10 +250,10 @@ drawscreen(void)
 	for(i = 0; i < Brdsize; i++) {
 		l1 = addpt(screen->r.min, Pt(i*Square, Square));
 		l2 = addpt(screen->r.min, Pt(i*Square, Maxy));
-		line(screen, l1, l2, Endsquare, Endsquare, (i%3) == 0 ? Thickline : Line, brdr, ZP); 
+		line(screen, l1, l2, Endsquare, Endsquare, (i%3) == 0 ? Thickline : Line, brdr, ZP);
 		l1 = addpt(screen->r.min, Pt(0, (i+1)*Square));
 		l2 = addpt(screen->r.min, Pt(Maxx, (i+1)*Square));
-		line(screen, l1, l2, Endsquare, Endsquare, (i%3) == 0 ? Thickline : Line, brdr, ZP); 
+		line(screen, l1, l2, Endsquare, Endsquare, (i%3) == 0 ? Thickline : Line, brdr, ZP);
 	}
 	for(i = 1; i < 10; i++) {
 		drawbar(i, (selected == i) ? 1 : 0);
@@ -286,12 +286,12 @@ eresized(int new)
 
 	if(new && getwindow(display, Refnone) < 0)
 		sysfatal("can't reattach to window");
-	
-	if(background == nil) 
+
+	if(background == nil)
 		background = eallocimage(Rect(0, 0, 1, 1), 1, DPaleyellow);
-	if(backselect == nil) 
+	if(backselect == nil)
 		backselect = eallocimage(Rect(0, 0, 1, 1), 1, DPalebluegreen);
-	if(blink == nil) 
+	if(blink == nil)
 		blink = eallocimage(Rect(0, 0, 1, 1), 1, DDarkyellow);
 	if(brdr == nil)
 		brdr = eallocimage(Rect(0, 0, 1, 1), 1, 0x55555555);
@@ -367,7 +367,7 @@ main(int argc, char *argv[])
 							brd[lp.x * Brdsize + lp.y].digit = selected - 1;
 						} else {
 							brd[lp.x * Brdsize + lp.y].digit = -1;
-						}			
+						}
 					}
 					drawscreen();
 				}

@@ -11,6 +11,7 @@ DIRS=\
 	memo\
 	glendy\
 	mandel\
+	timmy\
 
 TARG=$DIRS
 

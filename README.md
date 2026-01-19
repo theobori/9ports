@@ -67,7 +67,7 @@ For a C file, it migth look like this.
 
 ```C
 // Port comment
-// 
+//
 // <Description line 1>
 // ...
 // <Description line n>

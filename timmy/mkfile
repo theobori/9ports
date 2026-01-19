@@ -1,0 +1,22 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+TARG=timmy
+OFILES=\
+	phys.$O\
+	poly.$O\
+	simple.$O\
+	timmy.$O\
+	util.$O\
+
+HFILES=\
+	dat.h\
+	fns.h\
+
+pre-install:V:
+	mkdir -p $BIN
+
+install:V: pre-install $TARG.install
+
+<$PLAN9/src/mkone
