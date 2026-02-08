@@ -1,0 +1,20 @@
+<$PLAN9/src/mkhdr
+
+BIN=$PREFIX/bin
+
+TARG=mines
+OFILES=\
+	mines.$O\
+	gfx.$O\
+	ghost.$O\
+
+HFILES=\
+	dat.h\
+	fns.h\
+
+pre-install:V:
+	mkdir -p $BIN
+
+install:V: pre-install $TARG.install
+
+<$PLAN9/src/mkone

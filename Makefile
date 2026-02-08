@@ -2,18 +2,19 @@ PREFIX ?= /usr
 export PREFIX := ${PREFIX}
 
 TARGETS ?= catclock \
-		   sudoku \
-		   juggle \
-		   festoon \
-		   sokoban \
-		   mahjongg \
-		   life \
-		   xs \
-		   face \
-		   memo \
-		   glendy \
-		   mandel \
-		   timmy
+		sudoku \
+		juggle \
+		festoon \
+		sokoban \
+		mahjongg \
+		life \
+		xs \
+		face \
+		memo \
+		glendy \
+		mandel \
+		timmy \
+		mines
 
 define create_phony_target
 .PHONY: ${1}

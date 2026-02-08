@@ -37,6 +37,8 @@
           glendy = pkgs.callPackage ./glendy { inherit face; };
           mandel = pkgs.callPackage ./mandel { };
           timmy = pkgs.callPackage ./timmy { };
+          mines = pkgs.callPackage ./mines { };
+
         };
 
         devShells = {

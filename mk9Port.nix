@@ -55,7 +55,6 @@ stdenv.mkDerivation {
   '';
 
   meta = {
-    description = "";
     homepage = "https://github.com/theobori/9ports";
   }
   // lib.optionalAttrs (mainProgram != null) {

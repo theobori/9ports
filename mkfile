@@ -12,6 +12,7 @@ DIRS=\
 	glendy\
 	mandel\
 	timmy\
+	mines\
 
 TARG=$DIRS
 
